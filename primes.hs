@@ -8,3 +8,6 @@ ldf :: Int -> Int -> Int
 ldf k n | divides k n = k
         | k^2 > n     = n
         | otherwise   = ldf (k+1) n
+
+prime0 :: Int -> Bool
+prime0 n = ld n == n
