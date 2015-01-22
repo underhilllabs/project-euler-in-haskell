@@ -65,4 +65,7 @@ fib n = fib(n-1) + fib(n-2)
 fibs :: [Int]
 fibs = [fib x | x <- [0..]]
 
-
+-- do all the numbers in xs divide even into n
+dividesArr :: Int -> [Int] -> Bool
+dividesArr n [] = True
+dividesArr n (x:xs) = divides x n && dividesArr n xs
