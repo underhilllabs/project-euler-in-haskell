@@ -43,3 +43,9 @@ factors n = [x | x <- [2..n], divides x n]
 
 primeFactors :: Int -> [Int]
 primeFactors n = [x | x <- (factors n), prime0 x]
+
+-- take 6 primeArr
+primeArr :: [Int]
+primeArr = [x | x <- [2..], prime0 x]
+
+
