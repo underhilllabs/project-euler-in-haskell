@@ -24,8 +24,8 @@ mult3or5 n  | rem n 3 == 0 = True
 --fibUpTo n :: Int -> [Int]
 -- fibUpTo n = [x | x <- fibNext 0 1,   
 
-fibNext :: Int -> Int -> Int
-fibNext x y = x + y
+--fibNext :: Int -> Int -> Int
+--fibNext x y = x + y
 
 -- [ fizbuzz x | x <- [1..100] ]
 fizbuzz :: Int -> String
@@ -44,8 +44,25 @@ factors n = [x | x <- [2..n], divides x n]
 primeFactors :: Int -> [Int]
 primeFactors n = [x | x <- (factors n), prime0 x]
 
--- take 6 primeArr
-primeArr :: [Int]
-primeArr = [x | x <- [2..], prime0 x]
+-- take 6 primeList
+primeList :: [Int]
+primeList = [x | x <- [2..], prime0 x]
+
+fibNext :: [Int] -> Int
+fibNext [] = 0
+fibNext [0] = 1
+fibNext (xs) =  sum (take 2 (reverse xs))
+
+fibList :: [Int] -> [Int]
+fibList (xs) = xs ++ [fibNext xs]
+
+fib :: Int -> Int
+fib 0 = 1
+fib 1 = 1
+fib n = fib(n-1) + fib(n-2) 
+
+-- generate Fibonacci numbers 
+fibs :: [Int]
+fibs = [fib x | x <- [0..]]
 
 
