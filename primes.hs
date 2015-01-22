@@ -38,3 +38,8 @@ fizbuzz n | rem n 3 == 0 && rem n 5 == 0 = "fizbuzz"
 fizUpTo :: Int -> [String]
 fizUpTo n = [fizbuzz x | x <- [1..n]]
 
+factors :: Int -> [Int]
+factors n = [x | x <- [2..n], divides x n]
+
+primeFactors :: Int -> [Int]
+primeFactors n = [x | x <- (factors n), prime0 x]
