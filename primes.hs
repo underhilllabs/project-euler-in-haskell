@@ -1,3 +1,5 @@
+module my_primes where
+
 divides :: Int -> Int -> Bool
 divides d n = rem n d == 0
 
@@ -69,3 +71,25 @@ fibs = [fib x | x <- [0..]]
 dividesArr :: Int -> [Int] -> Bool
 dividesArr n [] = True
 dividesArr n (x:xs) = divides x n && dividesArr n xs
+
+sumOfSq :: Int -> Int
+sumOfSq n = sum([ x^2 | x <- [1..n] ])
+
+sqOfSums :: Int -> Int
+sqOfSums n = sum( [ x | x <- [1..n] ] )^2 
+
+isPalindrome :: String -> Bool
+isPalindrome (xs) = xs == reverse(xs)
+
+-- :m + Data.List
+-- sort [ x*y | x <- [10..99], y <- [10..99], isPalindrome( show( x*y )) ]
+
+pyTriple :: Int -> Int -> Int -> Bool
+pyTriple a b c = (a^2 + b^2) == c^2
+
+-- [a*b*c | c <- [3..1000], b <- [2..(c-1)], a <- [1..(b-1)], pyTriple a b c, a + b + c == 1000]
+
+-- :m + Data.Char
+addDigits :: String -> Int
+addDigits [] = 0
+-- addDigs (x:xs) = digitToInt x + addDigs xs
