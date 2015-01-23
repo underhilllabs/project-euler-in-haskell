@@ -1,4 +1,3 @@
-module my_primes where
 
 divides :: Int -> Int -> Bool
 divides d n = rem n d == 0
@@ -89,7 +88,8 @@ pyTriple a b c = (a^2 + b^2) == c^2
 
 -- [a*b*c | c <- [3..1000], b <- [2..(c-1)], a <- [1..(b-1)], pyTriple a b c, a + b + c == 1000]
 
--- :m + Data.Char
+---
 addDigits :: String -> Int
 addDigits [] = 0
--- addDigs (x:xs) = digitToInt x + addDigs xs
+addDigits (xs) = (read ( take 1 xs ) :: Int) + (addDigits (tail xs))
+
