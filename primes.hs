@@ -48,11 +48,11 @@ divisors n = [ x | x <- [1..(n-1)], divides x n]
 sumDiv :: Int -> Int
 sumDiv n = sum (divisors n)
 
-amicableNum :: Int -> Bool
-amicableNum n = sumDiv(sumDiv(n)) == n   
+Amicablenum :: Int -> Bool
+amicableNum n = sumDiv(sumDiv(n)) == n && (sumDiv(n) /= n)   
 
 amicableNums :: Int -> [Int]
-amicableNums n = [ x | x <- [1..n], amicableNum x]
+amicableNums n = [ x | x <- [1..n], amicableNum x ]
 
 primeFactors :: Int -> [Int]
 primeFactors n = [x | x <- (factors n), prime0 x]
