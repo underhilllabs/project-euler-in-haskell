@@ -48,7 +48,7 @@ divisors n = [ x | x <- [1..(n-1)], divides x n]
 sumDiv :: Int -> Int
 sumDiv n = sum (divisors n)
 
-Amicablenum :: Int -> Bool
+amicableNum :: Int -> Bool
 amicableNum n = sumDiv(sumDiv(n)) == n && (sumDiv(n) /= n)   
 
 amicableNums :: Int -> [Int]
@@ -105,3 +105,8 @@ addDigits :: String -> Int
 addDigits [] = 0
 addDigits (xs) = (read ( take 1 xs ) :: Int) + (addDigits (tail xs))
 
+--head show (2^1000) 
+
+sumDigits :: [Char] -> Int
+sumDigits [] = 0
+sumDigits xs = (read (take 1 xs) :: Int) + sumDigits(tail xs)
