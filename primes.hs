@@ -100,11 +100,6 @@ pyTriple a b c = (a^2 + b^2) == c^2
 
 -- [a*b*c | c <- [3..1000], b <- [2..(c-1)], a <- [1..(b-1)], pyTriple a b c, a + b + c == 1000]
 
----
-addDigits :: String -> Int
-addDigits [] = 0
-addDigits (xs) = (read ( take 1 xs ) :: Int) + (addDigits (tail xs))
-
 --head show (2^1000) 
 
 sumDigits :: [Char] -> Int
