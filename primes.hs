@@ -122,3 +122,7 @@ fact n = product [1..n]
 factDigs :: [Char] -> Int 
 factDigs [] = 0 
 factDigs xs = fact(read (take 1 xs) :: Int) + factDigs(tail xs) 
+
+-- length(nub (powersList 2 100) )
+powersLst :: Int -> Int -> [Int]
+powersLst a b = [ a^b | a <- [a..b], b <- [a..b]]
