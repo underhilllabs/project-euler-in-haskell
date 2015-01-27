@@ -45,6 +45,10 @@ factors n = [x | x <- [2..n], divides x n]
 divisors :: Int -> [Int]
 divisors n = [ x | x <- [1..(n-1)], divides x n]
 
+-- This one includes 1.
+divisors2 :: Int -> [Int]
+divisors2 n = [x | x <- [1..n], divides x n]
+
 sumDiv :: Int -> Int
 sumDiv n = sum (divisors n)
 
