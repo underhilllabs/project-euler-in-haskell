@@ -109,3 +109,16 @@ pyTriple a b c = (a^2 + b^2) == c^2
 sumDigits :: [Char] -> Int
 sumDigits [] = 0
 sumDigits xs = (read (take 1 xs) :: Int) + sumDigits(tail xs)
+
+numStr :: Int -> Int -> [Char]
+numStr x max | x > max = ""
+             | otherwise = show (x) ++ numStr (x+1) max 
+ 
+fact :: Int -> Int 
+fact 0 = 1 
+fact n = product [1..n]
+ 
+-- return the sum of the factorials of the digits
+factDigs :: [Char] -> Int 
+factDigs [] = 0 
+factDigs xs = fact(read (take 1 xs) :: Int) + factDigs(tail xs) 
