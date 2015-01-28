@@ -126,3 +126,12 @@ factDigs xs = fact(read (take 1 xs) :: Int) + factDigs(tail xs)
 -- length(nub (powersList 2 100) )
 powersLst :: Int -> Int -> [Int]
 powersLst a b = [ a^b | a <- [a..b], b <- [a..b]]
+
+fifthDigs :: [Char] -> Int
+fifthDigs [] = 0
+fifthDigs xs = (read(take 1 xs):: Int)^5 + fifthDigs(tail xs)
+
+fifthDigP :: Int -> Bool
+fifthDigP n = n == fifthDigs (show n)
+
+
