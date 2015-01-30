@@ -113,7 +113,7 @@ sumDigits xs = (read (take 1 xs) :: Int) + sumDigits(tail xs)
 numStr :: Int -> Int -> [Char]
 numStr x max | x > max = ""
              | otherwise = show (x) ++ numStr (x+1) max 
- 
+
 fact :: Int -> Int 
 fact 0 = 1 
 fact n = product [1..n]
@@ -134,4 +134,7 @@ fifthDigs xs = (read(take 1 xs):: Int)^5 + fifthDigs(tail xs)
 fifthDigP :: Int -> Bool
 fifthDigP n = n == fifthDigs (show n)
 
+fibNxt :: Int -> Int -> [Int]
+fibNxt 0 0 = 1 : fibNxt 0 1
+fibNxt x y = (x+y) : fibNxt y (x+y)
 
