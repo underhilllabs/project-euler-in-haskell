@@ -110,6 +110,9 @@ sumDigits :: [Char] -> Int
 sumDigits [] = 0
 sumDigits xs = (read (take 1 xs) :: Int) + sumDigits(tail xs)
 
+sumDigs :: Int -> Int
+sumDigs n = (read(take 1 (show n)) :: Int) + sumDigits(tail (show n))
+
 numStr :: Int -> Int -> [Char]
 numStr x max | x > max = ""
              | otherwise = show (x) ++ numStr (x+1) max 
@@ -138,3 +141,8 @@ fibNxt :: Int -> Int -> [Int]
 fibNxt 0 0 = 1 : fibNxt 0 1
 fibNxt x y = (x+y) : fibNxt y (x+y)
 
+isInt :: (RealFrac a) => a -> Bool
+isInt x = x == fromInteger(round x)
+
+-- sumDigsPow :: Int -> Bool
+-- sumDigsPow x = isInt(logBase sumDigs(x)  x)
