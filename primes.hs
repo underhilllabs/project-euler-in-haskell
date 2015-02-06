@@ -113,6 +113,10 @@ sumDigits :: [Char] -> Int
 sumDigits [] = 0
 sumDigits xs = (read (take 1 xs) :: Int) + sumDigits(tail xs)
 
+multDigits :: [Char] -> Integer
+multDigits [] = 1
+multDigits xs = (read(take 1 xs) :: Integer) * multDigits(tail xs)
+
 sumDigs :: Int -> Int
 sumDigs n = (read(take 1 (show n)) :: Int) + sumDigits(tail (show n))
 
@@ -154,3 +158,10 @@ triNum :: Int -> Int
 triNum n = n * (n+1) `div` 2
 
 triangle1 = scanl (+) 1 [2..]
+
+removeNewlines :: String -> String
+removeNewlines [] = ""
+removeNewlines (x:xs) | x == '\n' = removeNewlines xs
+                      | otherwise = x : removeNewlines xs
+
+
