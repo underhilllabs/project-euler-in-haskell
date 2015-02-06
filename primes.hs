@@ -1,5 +1,5 @@
 
-divides :: Int -> Int -> Bool
+divides :: Integral a => a -> a -> Bool
 divides d n = rem n d == 0
 
 ld :: Int -> Int
@@ -41,6 +41,9 @@ fizUpTo n = [fizbuzz x | x <- [1..n]]
 
 factors :: Int -> [Int]
 factors n = [x | x <- [2..n], divides x n]
+
+factors2 :: Integral a => a -> [a]
+factors2 n = n:[x | x <- [1..n `div` 2], divides x n]
 
 divisors :: Int -> [Int]
 divisors n = [ x | x <- [1..(n-1)], divides x n]
@@ -146,3 +149,8 @@ isInt x = x == fromInteger(round x)
 
 -- sumDigsPow :: Int -> Bool
 -- sumDigsPow x = isInt(logBase sumDigs(x)  x)
+
+triNum :: Int -> Int
+triNum n = n * (n+1) `div` 2
+
+triangle1 = scanl (+) 1 [2..]
