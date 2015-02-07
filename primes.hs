@@ -165,3 +165,7 @@ removeNewlines (x:xs) | x == '\n' = removeNewlines xs
                       | otherwise = x : removeNewlines xs
 
 
+rightTri :: Integer -> [(Integer, Integer, Integer)]
+rightTri n = [(x, y, z)| z <- [1..(n `div` 2)], y <- [1..z], x <- [1..z], x^2 + y^2 == z^2, x+y+z == n] 
+
+-- [(n, len)| n <- [1..1000], let len = length $ rightTri n, len > 2]
