@@ -6,12 +6,7 @@ main = do
   handle <- openFile "names.txt" ReadMode
   contents <- hGetContents handle
   let names = sort $ words contents
-  --print $ length $ sort names
-  --print $ wordsum "BOSSY"
-  --print $ wordsum "SEAMUS"
-  let count = 1
-  let totals = zipWith (\w n -> n * (wordsum w)) names [1..]
-  let total = sum totals
+  let total = sum $ zipWith (\word n -> n * (wordsum word)) names [1..]
   print total
       
 wordsum :: String -> Int
