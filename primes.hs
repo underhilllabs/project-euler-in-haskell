@@ -117,6 +117,10 @@ multDigits :: [Char] -> Integer
 multDigits [] = 1
 multDigits xs = (read(take 1 xs) :: Integer) * multDigits(tail xs)
 
+sqDigits :: [Char] -> Integer
+sqDigits [] = 0
+sqDigits xs = (read(take 1 xs) :: Integer)^2 + sqDigits(tail xs)
+
 sumDigs :: Int -> Int
 sumDigs n = (read(take 1 (show n)) :: Int) + sumDigits(tail (show n))
 
@@ -169,3 +173,8 @@ rightTri :: Integer -> [(Integer, Integer, Integer)]
 rightTri n = [(x, y, z)| z <- [1..(n `div` 2)], y <- [1..z], x <- [1..z], x^2 + y^2 == z^2, x+y+z == n] 
 
 -- [(n, len)| n <- [1..1000], let len = length $ rightTri n, len > 2]
+
+sdChain :: Integer -> Bool
+sdChain 1 = False
+sdChain 89 = True
+sdChain n = sdChain $ sqDigits $ show n
