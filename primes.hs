@@ -161,6 +161,15 @@ isInt x = x == fromInteger(round x)
 triNum :: Int -> Int
 triNum n = n * (n+1) `div` 2
 
+pentNum :: Int -> Int
+pentNum n = n * (3*n - 1) `div` 2
+
+hexNum :: Int -> Int
+hexNum n = n * (2*n - 1)
+
+--triList :: [Int]
+--tr
+
 triangle1 = scanl (+) 1 [2..]
 
 removeNewlines :: String -> String
@@ -178,3 +187,12 @@ sdChain :: Integer -> Bool
 sdChain 1 = False
 sdChain 89 = True
 sdChain n = sdChain $ sqDigits $ show n
+
+sum' :: (Num a) => [a] -> a
+sum' (xs) = foldl (+) 0 xs
+
+
+prod' :: [Int] -> Int
+prod' (xs) = foldl (*) 1 xs
+
+data Day = Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday deriving (Eq, Ord, Show, Read, Bounded, Enum)
